@@ -20,11 +20,18 @@ public class Customer {
     public static Customer fromString( String customerString) {
         String [] parts  = customerString.split(",");
         if (parts.length < 2) {
-            throw new IllegalArgumentException("invalid customer string file" + customerString);
+            throw new IllegalArgumentException("invalid customer string" + customerString);
+        }
+        String customerName = parts[0];
+        int customerID;
+        try {
+            customerID = Integer.parseInt(parts[1]);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("invalid customer id" + parts[1]);
         }
 
-        return null;
-        //test
+        return new Customer(customerName, customerID);
+
     }
 
 
