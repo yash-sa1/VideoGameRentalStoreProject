@@ -1,6 +1,8 @@
 package com.yash.VideoGameRentalStore.model.entity;
 import lombok.Getter;
 import lombok.Setter;
+
+
 @Getter
 @Setter
 public class VideoGame {
@@ -24,6 +26,25 @@ public class VideoGame {
         return title;
     }
 
+    public String getGenre() {
+        return genre;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getCurrent_stock() {
+        return current_stock;
+    }
+
+    public int getGameID() {
+        return gameID;
+    }
+
+    public void setCurrent_stock(int current_stock) {
+        this.current_stock = current_stock;
+    }
 
     public static VideoGame fromString (final String videoGameString) {
         String[] parts = videoGameString.split(",");
