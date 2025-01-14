@@ -59,7 +59,6 @@ public class DataAccessLayer implements DataAccessLayerInterface {
         int newStock = game.getCurrent_stock() + 1;
         FileUtils.changeStock(GAME_FILE, game.getTitle(), newStock);
         game.setCurrent_stock(newStock);
-        System.out.println("Game returned successfully! yesss");
 
     }
 

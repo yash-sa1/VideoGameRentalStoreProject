@@ -59,8 +59,8 @@ public class VideoGameService {
         int customerID = dataAccessLayer.create_next_id("customers.txt"); // creates a new ID
         var customer = new Customer(customerName, customerID); // creates a new customer object with the entered name
         dataAccessLayer.registerCustomer(customer); // registers the customer accessing the data access layer
-        System.out.println("Customer registered successfully with ID: " + customerID);
-        return customer.getCustomerid();
+        return ( customer.getCustomerid());
+
     }
 
     public String rentGame(int customerID, String title) throws IOException {
@@ -77,11 +77,11 @@ public class VideoGameService {
             rentals.add(rental);
             dataAccessLayer.saveRental(rental); // saves the rental details to the rentals file
             dataAccessLayer.changeStockAfterRenting(game); // changes the stock after renting
-            return ("Game rented successfully with rental ID: " + specificRentalID);
+            return ("completed request");
         } else {
-            System.out.println("customer or game not found or game out of stock");
+            return ("customer or game not found or game out of stock");
         }
-        return null;
+
     }
 
     public String returnGame( String name, Integer customerID, String title, String givenrentalID) throws IOException {
